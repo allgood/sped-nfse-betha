@@ -477,10 +477,10 @@ class Tools extends BaseTools
     /**
      * Solicita a emissão de uma NFSe de forma SINCRONA
      * @param RpsInterface $rps
-     * @param string $lote Identificação do lote
+     * @param string &$signedXml variável por referência recebe o xml assinado
      * @return string
      */
-    public function gerarNfse(RpsInterface $rps)
+    public function gerarNfse(RpsInterface $rps, string &$signedXml = null)
     {
         $operation = "GerarNfse";
         $rps->config($this->config);
@@ -502,6 +502,7 @@ class Tools extends BaseTools
             $content
         );
         Validator::isValid($content, $this->xsdpath);
+        $signedXml = $content;
         return $this->send($content, $operation);
     }
 }

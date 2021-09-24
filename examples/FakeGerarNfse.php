@@ -102,9 +102,15 @@ try {
 
     $rps = new Rps($std);
 
-    $response = $tools->gerarNfse($rps);
+    $signedXml = null;
+    $response = $tools->gerarNfse($rps, $signedXml);
 
+    echo "XML Assinado:\n";
+    echo $signedXml;
+
+    echo "\n\nResposta:\n";
     echo FakePretty::prettyPrint($response, '');
+    
 } catch (\Exception $e) {
     echo $e->getMessage();
 }
