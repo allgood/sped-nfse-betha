@@ -33,7 +33,7 @@ try {
     $id = '1';
     $numero = '1';
     
-    $response = $tools->cancelarNfse($id, $numero, $tools::CANCEL_ERRO_EMISSAO);
+    $response = $tools->cancelarNfse($numero, $tools::CANCEL_ERRO_EMISSAO, $id);
 
     echo FakePretty::prettyPrint($response, '');
  
