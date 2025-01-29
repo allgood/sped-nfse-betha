@@ -409,7 +409,7 @@ abstract class SoapBase implements SoapInterface
                 $this->pubfile,
                 $this->certificate->publicKey
             );
-            $this->filesystem->put(
+            $this->filesystem->write(
                 $this->certfile,
                 $private."{$this->certificate}"
             );
